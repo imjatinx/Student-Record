@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DOM MANIPULATION</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- AOS ANIMATION -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.0.1/dist/aos.css" />
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.0.1/dist/aos.js"></script> -->
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <body>
+
+        <!-- <h3 style="background-color: grey;">Current time is: <span id="time"></span></h3> -->
+        <div data-aos="fade-down">
+            <ul style="display:flex; justify-content: center; list-style: none;">
+                <li class="mx-2">HOME</li>
+                <li class="mx-2">PROJECTS</li>
+                <li class="mx-2">ABOUT US</li>
+                <li class="mx-2">CONTACT US</li>
+            </ul>
+        </div>
+        <p id="para" style="transition: all 1s ease; background-color: crimson;">
+            Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Tempora
+            praesentium mollitia distinctio,
+            aspernatur excepturi in tempore voluptas. Optio deserunt culpa autem corrupti impedit! Quos, iure? Totam
+            libero
+            itaque illo sint!</p>
+        <div class="mx-5 d-flex justify-content-center">
+            <input type="button" class="btn btn-dark mx-5" value="SHOW/HIDE" onclick="showHide()" id="showHide">
+
+            <!-- <input type="button" class="btn btn-primary" value="COME OVER" onmouseover="comeOver()" id="comeOver"> -->
+        </div>
+
+        <h3 class="mynavbar text-center" id="mynavbar">Students List</h3>
+
+        <div class=" my-2 text-center">
+            <button class="btn btn-success mx-5" id="addBtn">ADD +</button>
+            <button class="btn btn-warning mx-5" id="showBtn">SHOW</button>
+        </div>
+        <div class="container">
+            <div id="addData" class="col-6  mx-auto border border-radius shadow px-4 py-3">
+                <span id="myPopUp"></span>
+                <form id="formHandle">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Class</label>
+                        <input type="text" class="form-control" id="classC">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Roll No.</label>
+                        <input type="text" class="form-control" id="rollno">
+                    </div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+            <div id="showData" style="display:none;" class="col-6 mx-auto border">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>ID</th>
+                        </tr>
+                        </tr>
+                    </thead>
+                    <tbody id="tableData">
+                        <!-- Content will be inserted here from JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="bg-dark mt-5">
+            <footer class="py-3">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="text-white nav-item"><a href="#" class="nav-link px-2">Home</a></li>
+                    <li class="text-white nav-item"><a href="#" class="nav-link px-2">Features</a></li>
+                    <li class="text-white nav-item"><a href="#" class="nav-link px-2">Pricing</a></li>
+                    <li class="text-white nav-item"><a href="#" class="nav-link px-2">FAQs</a></li>
+                    <li class="text-white nav-item"><a href="#" class="nav-link px-2">About</a></li>
+                </ul>
+                <p class="text-center text-white">&copy; 2022 Company, Inc</p>
+            </footer>
+        </div>
+
+
+        <!-- The way to manipulate DOM
+        1. By adding CSS = on an event fire manipulate style of an element.
+        2. By adding JS = on an event fire manipulate the action of an element. 
+        -->
+
+        <script>
+            AOS.init({
+                duration: 1000,
+            });
+        </script>
+
+        <Script>
+            // JAVA SCRIPT DOM MANIPULATION BY CSS
+            let para = document.getElementById('para')
+
+            para.addEventListener('mouseover', () => {
+                console.log('Mouse is over the para')
+            })
+            para.addEventListener('mouseout', () => {
+                console.log('Mouse is out the para')
+            })
+
+            para.style.color = 'white';
+            para.style.position = 'relative';
+            para.style.left = '-100%';
+            para.style.top = '0%';
+
+            const showHide = () => {
+                let showHideBtn = document.getElementById('showHide')
+                let para = document.getElementById('para')
+
+                if (para.style.left == '-100%') {
+                    para.style.left = '0%';
+                } else if (para.style.left = '0%')
+                    para.style.left = '-100%';
+                {
+                }
+                // if (para.style.visibility == 'hidden') {
+                //     para.style.visibility = 'visible';
+                // }else{
+                //     para.style.visibility = 'hidden';
+                // }
+            }
+
+            // Redirect to given url on fire event
+            // function comeOver() {
+            //     location.href = '';
+            // }
+
+            function displyDate() {
+                time = new Date();
+                document.getElementById('time').innerHTML = time;
+            }
+
+            // Continous Running after interval of seconds
+            // setInterval(showHide, 5000);
+            setInterval(displyDate, 1000);
+
+            // Running only once after the interval of time
+            // setTimeout(() => {
+            //     let showHideBtn = document.getElementById('showHide')
+            //     let para = document.getElementById('para')
+
+            //     if (para.style.left == '-100%') {
+            //         para.style.left = '0%';
+            //     } else if (para.style.left = '0%'){
+            //     para.style.left = '-100%';
+            //     }
+            //     console.log("Set timout triggered")
+            // }, 3000);
+
+            // Print the properties of mynavbar id element
+            // document.getElementById('mynavbar').addEventListener('click',(e)=>{
+            //     let a;
+            //         console.log(e);
+            //         console.log(e.target);
+            //         a = e.target.className;
+            //         console.log(a);
+            // })
+
+            // JAVASCRIPT WINDOW OBJECT
+
+            // Print the URL of document by using or without using Window object
+            // console.log(window.document.URL)
+            // console.log(document.URL)
+
+            // JAVASCRIPT DOM MANIPULATION BY JAVASCRIPT
+
+            addBtn.addEventListener('click', () => {
+                let addData = document.getElementById('addData');
+                let showData = document.getElementById('showData');
+                // console.log('I am addBtn');
+                showData.style.display = 'none'
+                addData.style.display = 'block';
+            })
+
+            showBtn.addEventListener('click', () => {
+                let addData = document.getElementById('addData');
+                let showData = document.getElementById('showData');
+                // console.log('I am showBtn');
+                showData.style.display = 'block'
+                addData.style.display = 'none';
+            })
+
+
+            let students = []
+
+            window.addEventListener('load', () => {
+                var data = getNameFromLocalStorage()
+                students = data;
+                insertList()
+            })
+
+            formHandle.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const name = document.querySelector('#name').value
+                const classC = document.querySelector('#classC').value
+                const rollno = document.querySelector('#rollno').value
+
+                const stdName = {
+                    name,
+                    classC,
+                    rollno
+                };
+
+                students.push(stdName)
+
+                formHandle.reset();
+                setNameInLocalStorage()
+
+                insertList()
+                myPopUp()
+
+            })
+
+            function insertList() {
+                const tableData = document.getElementById("tableData")
+                let insertHtml = '';
+                students.forEach((data, index) => {
+                    const sno = index + 1;
+                    const myStr =
+                        `<tr>
+                        <td>${sno}</td>
+                        <td>${data.name}</td>
+                        <td>${data.classC}</td>
+                        <td>${data.rollno}</td>
+                        </tr>`;
+                    insertHtml += myStr;
+
+                    tableData.innerHTML = insertHtml;
+                })
+
+            }
+
+            insertList()
+
+            function myPopUp() {
+                const myPopUp = document.getElementById("myPopUp")
+                let insertPopUp = '';
+
+                const mypu =
+                    `
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        Student saved!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        `
+                insertPopUp += mypu;
+                myPopUp.innerHTML = insertPopUp;
+            }
+
+
+
+            function setNameInLocalStorage() {
+                localStorage.setItem("std", JSON.stringify(students))
+            }
+
+            function getNameFromLocalStorage() {
+                const getData = localStorage.getItem("std");
+
+                return getData ? JSON.parse(getData) : []
+            }
+
+
+
+        </Script>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</html>
